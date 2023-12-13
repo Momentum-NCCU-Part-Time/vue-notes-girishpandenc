@@ -1,43 +1,46 @@
 <script setup>
-import { ref } from 'vue'
-import { createNote } from '@/requests'
+import { ref } from "vue";
+const newNoteTitle = ref("");
+const newNoteBody = ref("");
+const emit = defineEmits(["noteCreated"]);
 
-const header = ref('New Note')
-const newNoteTitle = ref("")
-const newNoteBody = ref("")
-
-const emit = defineEmits(['noteCreated'])
-
-const addNote = () => {
-  if (!newNoteTitle.value) return
-  createNote({ title:newNoteTitle.value, body:newNoteBody.value})
-  .then ((createNote) => {
-    emit('noteCreated', createNote)
-    resetNote()
+const createNote = () => {
+  if (!newNoteTitle) return;
+  fetch("http://localhost:3000/notes/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: newNoteTitle.value,
+      body: newNoteBody.value,
+    }),
   })
-}
+    .then((res) => res.json())
+    .then((note) => {
+      emit("noteCreated", note);
+      resetNote();
+    });
+};
+
 const resetNote = () => {
-  newNoteTitle.value = ""
-  newNoteBody.value = ""
-}
+  newNoteTitle.value = "";
+  newNoteBody.value = "";
+};
 </script>
 
 <template>
-
-<div>
-<h1>Vue Notes</h1>
-<h3> {{ header }}</h3>
-    <form  @submit.prevent="addNote" class="addNote"> 
-     <div class="newTitle">
-     <input v-model="newNoteTitle" type="text" placeholder="Title"> 
-     </div>
-     <br>
-     <div class="newBody">
-     <textarea v-model="newNoteBody" type="text" placeholder="Body">
-     </textarea>
-     </div>
-     <button type="submit" :disabled="!newNoteTitle">New note</button>
-    </form>
-</div>
-
+  <form id="NewNote" @submit.prevent="createNote">
+    <h2>New Note</h2>
+    <div class="title">
+      <input
+        type="text"
+        v-model.trim="newNoteTitle"
+        placeholder="New Note Title"
+      />
+    </div>
+    <br />
+    <div class="body">
+      <input type="text" v-model="newNoteBody" placeholder="New Note Body" />
+    </div>
+    <button type="submit" :disabled="!newNoteTitle">Add Note</button>
+  </form>
 </template>

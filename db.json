@@ -31,32 +31,14 @@
       "updatedAt": "2018-01-01T00:00:00.000Z"
     },
     {
-      "title": "Sample Note 6",
-      "body": "this is the body of note 6",
-      "updatedAt": "2023-12-07T20:28:24.994Z",
-      "id": 6
-    },
-    {
-      "title": "ad",
-      "body": "daad",
-      "updatedAt": "2023-12-07T21:05:24.679Z",
-      "id": 7
-    },
-    {
       "title": "ad",
       "body": "daad",
       "updatedAt": "2023-12-07T21:06:38.470Z",
       "id": 8
     },
     {
-      "title": "ad",
-      "body": "daad",
-      "updatedAt": "2023-12-07T21:06:39.684Z",
-      "id": 9
-    },
-    {
       "title": "Sample note 9",
-      "body": "body of sample note 9",
+      "body": "Body of sample note 9",
       "updatedAt": "2023-12-07T21:08:22.427Z",
       "id": 10
     },
@@ -88,31 +70,6 @@
       "title": "Sample note 14",
       "body": "body of sample note 14",
       "id": 15
-    },
-    {
-      "title": "sample note 15",
-      "body": "body of sample note 15",
-      "id": 16
-    },
-    {
-      "title": "sample note 16",
-      "body": "body 16",
-      "id": 17
-    },
-    {
-      "title": "title 17",
-      "body": "body 17",
-      "id": 18
-    },
-    {
-      "title": "title 18",
-      "body": "body 18",
-      "id": 19
-    },
-    {
-      "title": "title 19",
-      "body": "body 19",
-      "id": 20
     }
   ]
 }
